@@ -1,0 +1,14 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+        <mat-nav-list>
+            <app-nav-item *ngFor="let item of menuItems" [item]="item">
+            </app-nav-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button mat-button (click)="onMenuClick(sidenav)">
+            <mat-icon>{{menuIcon}}</mat-icon>
+        </button>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

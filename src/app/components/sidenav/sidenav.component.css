@@ -1,0 +1,7 @@
+mat-sidenav {
+  width: 16vw;
+}
+
+mat-sidenav-container {
+  flex: 1 0 auto;
+}
