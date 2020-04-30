@@ -9,10 +9,10 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './modules/material/material.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
-import { EmployeeComponent } from './components/support/employee/employee.component';
 import { HomeComponent } from './components/home/home.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { SupportComponent } from './components/support/support.component';
+import { AssignationComponent } from './components/assignation/assignation.component';
+import { SupportModule } from './components/support/support.module';
 
 
 @NgModule({
@@ -21,16 +21,16 @@ import { SupportComponent } from './components/support/support.component';
     ToolbarComponent,
     SidenavComponent,
     NavItemComponent,
-    EmployeeComponent,
     HomeComponent,
-    SupportComponent,
+    AssignationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    SupportModule
   ],
   providers: [],
   bootstrap: [AppComponent]

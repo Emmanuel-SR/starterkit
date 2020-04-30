@@ -22,17 +22,33 @@ export class SidenavComponent implements OnInit {
       {
         name: "Home",
         iconName: "home",
-        route: ""
+        route: "home"
+      },
+      {
+        name: "Assignation",
+        iconName: "work",
+        route: "assignation"
       },
       {
         name: "Support",
-        iconName: "settings",
+        iconName: "build",
         route: "support",
         children: [
           {
             name: "Employee",
             iconName: "face",
             route: "support/employee"
+          },
+          {
+            name: "Business",
+            iconName: "business",
+            route: "support/business"
+          }
+          ,
+          {
+            name: "Project",
+            iconName: "emoji_objects",
+            route: "support/project"
           }
         ]
       }
