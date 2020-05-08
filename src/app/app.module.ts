@@ -11,7 +11,6 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
 import { HomeComponent } from './components/home/home.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { AssignationComponent } from './components/assignation/assignation.component';
 import { SupportModule } from './components/support/support.module';
 
 
@@ -22,7 +21,6 @@ import { SupportModule } from './components/support/support.module';
     SidenavComponent,
     NavItemComponent,
     HomeComponent,
-    AssignationComponent
   ],
   imports: [
     BrowserModule,

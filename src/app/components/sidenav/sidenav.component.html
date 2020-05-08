@@ -1,5 +1,5 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+<mat-sidenav-container class="flex-auto">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="w-2/12">
         <mat-nav-list>
             <app-nav-item *ngFor="let item of menuItems" [item]="item">
             </app-nav-item>

@@ -1,24 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { SupportComponent } from './support.component';
-import { EmpresaComponent } from './empresa/empresa.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { ProyectoComponent } from './proyecto/proyecto.component';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { EmpresaService } from 'src/app/services/empresa.service';
-import { HttpClientModule } from '@angular/common/http';
-import { EmpresaDialogComponent } from './empresa/components/empresa-dialog/empresa-dialog.component';
+import { SupportComponent } from './support.component';
+import { Utility } from 'src/app/utils/helper/utility';
+import { UserService } from 'src/app/services/user.service';
+import { UserComponent } from './user/user.component';
+import { UserDialogComponent } from './user/components/employee-dialog/user-dialog.component';
+
 
 @NgModule({
   declarations: [
     SupportComponent,
-    EmpresaComponent,
-    EmployeeComponent,
-    ProyectoComponent,
-    EmpresaDialogComponent
+    UserComponent,
+    UserDialogComponent
   ],
   imports: [
     CommonModule,
@@ -27,9 +25,9 @@ import { EmpresaDialogComponent } from './empresa/components/empresa-dialog/empr
     HttpClientModule,
     FormsModule
   ],
-  providers: [EmpresaService],
+  providers: [UserService, Utility],
   entryComponents: [
-    EmpresaDialogComponent
+    UserDialogComponent
   ]
 })
 export class SupportModule { }
