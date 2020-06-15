@@ -1,0 +1,46 @@
+<div class="w-full min-h-screen flex flex-wrap justify-center items-center p-4 bg-blue-600">
+    <div class="wrap-login bg-white rounded-lg py-16 px-8">
+        <form class="w-full">
+            <div class="flex justify-center items-center">
+                <div class="block text-center text-3xl 
+                        text-blue-700 hover:text-blue-900 pb-12 pt-2">
+                    Login
+                </div>
+            </div>
+
+            <div class="w-full border-b pt-3 pb-px">
+                <label class="text-blue-800 hover:text-blue-900 leading-normal pl-2"
+                    for="username">Username</label>
+                <input class="block w-full h-8 pl-2 text-lg leading-tight rounded-t-md" type="text"
+                    id="username" name="username" [(ngModel)]="user.username"
+                    placeholder="Type your username" required>
+            </div>
+
+            <div class="w-full border-b pt-3 pb-px">
+                <label class="text-blue-800 hover:text-blue-900 leading-normal pl-2"
+                    for="pass">Password</label>
+                <input class="block w-full h-8 pl-2 text-lg leading-tight rounded-t-md"
+                    type="password" id="pass" name="pass" [(ngModel)]="user.password"
+                    placeholder="Type your password" required>
+            </div>
+
+            <div class="flex justify-end mt-4 mb-6">
+                <div class="text-blue-500 hover:text-blue-700 text-right"> <a href="#"> Forgot
+                        password? </a> </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full block rounded my-0 mx-auto">
+                    <button (click)="login()"
+                        class="w-full bg-blue-600 hover:bg-blue-700 rounded-full py-2 px-4 text-white text-center text-lg leading-tight">
+                        Login
+                    </button>
+                </div>
+            </div>
+            <div class="text-center">
+                <label *ngIf="invalidLogin" class="text-red-500">Usuario y/o contraseña es
+                    inválido.</label>
+            </div>
+        </form>
+    </div>
+</div>

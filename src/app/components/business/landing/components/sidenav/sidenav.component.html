@@ -1,0 +1,11 @@
+<mat-sidenav-container class="flex-auto">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="w-2/12">
+        <mat-nav-list>
+            <app-nav-item *ngFor="let item of menuItems" [item]="item" (selectItem)="onMenuSelect($event)">
+            </app-nav-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

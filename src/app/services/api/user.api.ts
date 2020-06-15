@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpApi } from './http.api';
-import { UserModel } from 'src/app/models/user.model';
+import { IUserModel } from 'src/app/models/user.model';
 
 @Injectable({
     providedIn: 'root'
@@ -12,20 +12,24 @@ export class UserApi {
 
     constructor(private httpApi: HttpApi) { }
 
-    getById(uid: number): Observable<UserModel> {
+    getByUserName(username: string): Observable<IUserModel> {
+        return this.httpApi.get(`${this.resourceUrl}/profile/${username}`);
+    }
+
+    getById(uid: number): Observable<IUserModel> {
         return this.httpApi.get(`${this.resourceUrl}/${uid}`);
     }
 
-    getAll(): Observable<UserModel[]> {
+    getAll(): Observable<IUserModel[]> {
         return this.httpApi.get(this.resourceUrl);
     }
 
-    save(user: any): Observable<UserModel> {
+    save(user: any): Observable<IUserModel> {
         return this.httpApi.post(this.resourceUrl, user);
     }
 
-    update(user: any): Observable<UserModel> {
-        return this.httpApi.put(`${this.resourceUrl}/${user.login.uid}`, user);
+    update(user: any): Observable<IUserModel> {
+        return this.httpApi.put(`${this.resourceUrl}/${user.id}`, user);
     }
 
 } 

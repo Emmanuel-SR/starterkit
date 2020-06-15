@@ -1,29 +1,38 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { UserApi } from './api/user.api';
-import { UserModel } from '../models/user.model';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { UserApi } from "./api/user.api";
+import { IUserModel } from "../models/user.model";
+import { map } from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: "root",
 })
 export class UserService {
 
-    constructor(private userApi: UserApi) { }
+  constructor(private userApi: UserApi) { }
 
-    getById(uid: number): Observable<UserModel> {
-        return this.userApi.getById(uid);
-    }
+  getByUserName(username: string): Observable<IUserModel> {
+    return this.userApi.getByUserName(username).pipe(
+      map((profile: IUserModel) => {
+        sessionStorage.setItem('email', profile.email);
+        return profile;
+      }));
+  }
 
-    getAll(): Observable<UserModel[]> {
-        return this.userApi.getAll();
-    }
+  getById(uid: number): Observable<IUserModel> {
+    return this.userApi.getById(uid);
+  }
 
-    save(user: any): Observable<UserModel> {
-        return this.userApi.save(user);
-    }
+  getAll(): Observable<IUserModel[]> {
+    return this.userApi.getAll();
+  }
 
-    update(user: any): Observable<UserModel> {
-        return this.userApi.update(user);
-    }
+  save(user: any): Observable<IUserModel> {
+    return this.userApi.save(user);
+  }
 
+  update(user: any): Observable<IUserModel> {
+    return this.userApi.update(user);
+  }
+  
 }

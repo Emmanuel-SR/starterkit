@@ -1,0 +1,7 @@
+<a mat-list-item (click)="onSelection(item)">
+    <mat-icon>{{item.iconName}}</mat-icon>
+    <span>{{item.name}}</span>
+</a>
+<div *ngIf="expanded" class="ml-4" >
+    <app-nav-item *ngFor="let child of item.children" [item]="child" (selectItem)="selectItem.emit($event)"></app-nav-item>
+</div>

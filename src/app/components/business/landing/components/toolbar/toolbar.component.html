@@ -1,0 +1,17 @@
+<mat-toolbar>
+    <mat-toolbar-row class="flex justify-between">
+        <div>
+            <button mat-icon-button id="toggle-menu" (click)="onToggle()">
+                <mat-icon>{{menuIcon}}</mat-icon>
+            </button>
+            <span> {{appName}}</span>
+        </div>
+        <div class="flex items-center justify-around">
+            <mat-icon>account_circle</mat-icon>
+            <span class="text-blue text-sm mr-2">{{email}}</span>
+            <button mat-button id="logout" (click)="logout()" class="bg-red-600 hover:bg-red-500">
+                <mat-icon>power_settings_new</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
