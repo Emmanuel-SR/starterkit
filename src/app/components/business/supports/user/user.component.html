@@ -19,7 +19,7 @@
                     {{ tableColumn.titleColumn }}
                 </th>
                 <td mat-cell *matCellDef="let element">
-                    {{ utilityService.getDynamicProp(element, tableColumn.displayedColumn) }}
+                    {{ utilityService.extractProperty(element, tableColumn.displayedColumn) }}
                 </td>
             </ng-container>
         </div>

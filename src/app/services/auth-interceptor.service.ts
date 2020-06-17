@@ -8,7 +8,6 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler) {
         if (sessionStorage.getItem("username") && sessionStorage.getItem("token")) {
-            console.log('interceptor');
             request = request.clone({
                 setHeaders: {
                     Authorization: sessionStorage.getItem("token"),

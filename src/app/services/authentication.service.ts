@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ILogin } from 'src/app/models/login.model';
 import { LoginApi } from './api/login.api';
 import { IJwtResponse } from '../models/jwt-response.model';
-import { map, tap, mapTo, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
@@ -22,15 +22,13 @@ export class AuthenticationService {
             }));
     }
 
-    isUserLoggedIn() {
+    isUserLoggedIn(): boolean {
         let user = sessionStorage.getItem('username')
         return !(user === null)
     }
 
-    logout() {
-        this.loginApi.logout().subscribe((data) => {
-            sessionStorage.clear();
-        });
+    logout(): Observable<any> {
+        return this.loginApi.logout();
     }
 
 }
