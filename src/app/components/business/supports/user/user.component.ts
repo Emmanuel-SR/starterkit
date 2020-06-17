@@ -92,6 +92,7 @@ export class UserComponent implements OnInit {
 
   loadDataSource() {
     this.userService.getAll().subscribe(users => {
+      console.log(users);
       this.dataSource = new MatTableDataSource<IUserModel>(users);
       this.dataSource.paginator = this.paginator;
     });
@@ -111,6 +112,10 @@ export class UserComponent implements OnInit {
       {
         displayedColumn: 'email',
         titleColumn: 'email'
+      },
+      {
+        displayedColumn: 'roles.name',
+        titleColumn: 'Roles'
       },
       {
         displayedColumn: 'active',
