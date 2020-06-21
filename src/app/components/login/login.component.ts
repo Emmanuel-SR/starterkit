@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
       },
       (error: IErrorModel) => {
         this.invalidLogin = true;
-        console.log(error);
       }
     );
   }
