@@ -3,39 +3,34 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { IElementTypeModel } from 'src/app/shared/models/element-type.model';
 import { ActionsEnum } from 'src/app/shared/enums/actions.enum';
-import { IUserModel } from 'src/app/models/user.model';
-import { IRoleModel } from 'src/app/models/role.model';
+import { IClientModel } from 'src/app/models/client.model';
+import { IIdentityDocumentModel } from 'src/app/models/identity-documents.model';
 
 
 @Component({
-  selector: 'app-user-dialog',
-  templateUrl: './user-dialog.component.html',
-  styleUrls: ['./user-dialog.component.css']
+  selector: 'app-client-dialog',
+  templateUrl: './client-dialog.component.html',
+  styleUrls: ['./client-dialog.component.css']
 })
-export class UserDialogComponent implements OnInit {
+export class ClientDialogComponent implements OnInit {
 
   title: string = 'Editar';
-  user: IUserModel;
+  client: IClientModel;
   isView: boolean;
-
-  roleList: IRoleModel[]
+  documents: IIdentityDocumentModel[];
 
   constructor(
-    public dialogRef: MatDialogRef<UserDialogComponent>,
+    public dialogRef: MatDialogRef<ClientDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IElementTypeModel,
   ) { }
 
-  ngOnInit(): void {
-    this.user = this.data.element;
-    this.roleList = this.data.lists.roles;
+  public ngOnInit(): void {
+    this.client = this.data.element;
+    this.documents = this.data.lists.documents;
     this.setTitle(this.data.type);
   }
 
-  compareFn(r1: IRoleModel, r2: IRoleModel): boolean {
-    return r1 && r2 ? r1.id === r2.id : r1 === r2;
-  }
-
-  setTitle(type: string) {
+  public setTitle(type: string) {
     if (type === ActionsEnum.EDIT) {
       this.title = "Editar";
     } else if (type === ActionsEnum.NEW) {
@@ -46,12 +41,12 @@ export class UserDialogComponent implements OnInit {
     this.isView = type === ActionsEnum.VIEW;
   }
 
-  cancel(): void {
+  public cancel(): void {
     this.dialogRef.close();
   }
 
-  accept(): void {
-
+  public accept(): void {
+    
   }
-
+  
 }

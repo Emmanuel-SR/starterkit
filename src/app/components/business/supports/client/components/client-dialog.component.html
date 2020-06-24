@@ -1,0 +1,41 @@
+<h1 mat-dialog-title> {{title}} Cliente </h1>
+
+<div mat-dialog-content>
+    <mat-form-field class="w-full">
+        <mat-label>Descripcion</mat-label>
+        <input matInput [(ngModel)]="client.description" [disabled]="isView" required>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+        <mat-label>Documento</mat-label>
+        <mat-select [(ngModel)]="client.identityDocument.code" [disabled]="isView" required>
+            <mat-option *ngFor="let doc of documents" [value]="doc.code">
+                {{doc.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+        <mat-label>Numero Documento</mat-label>
+        <input matInput [(ngModel)]="client.identityNumber" [disabled]="isView" required>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+        <mat-label>Telefono</mat-label>
+        <input matInput [(ngModel)]="client.phone" [disabled]="isView" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Active</mat-label>
+        <mat-select [(ngModel)]="client.active" [disabled]="isView">
+            <mat-option [value]="true">True</mat-option>
+            <mat-option [value]="false">False</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions class="flex justify-end mt-4">
+    <button mat-button (click)="cancel()" class="w-32 text-white bg-red-500 hover:bg-red-700">
+        {{ isView ? 'Close' : 'Cancel' }}
+    </button>
+    <button *ngIf="!isView" mat-button [mat-dialog-close]="client" (click)="accept()" cdkFocusInitial
+        class="w-32 text-white bg-blue-500 hover:bg-blue-700">
+        Accept
+    </button>
+</div>

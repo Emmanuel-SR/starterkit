@@ -20,6 +20,16 @@ export class NavMenuService {
           name: "User",
           iconName: "face",
           route: `${AppPath.LANDING}/${AppPath.USERS}`
+        },
+        {
+          name: "Vehicle",
+          iconName: "commute",
+          route: `${AppPath.LANDING}/${AppPath.VEHICLES}`
+        },
+        {
+          name: "Client",
+          iconName: "face",
+          route: `${AppPath.LANDING}/${AppPath.CLIENTS}`
         }
       ]
     }
@@ -30,9 +40,7 @@ export class NavMenuService {
   }
 
   select(item: NavMenuItem) {
-    //this.unselectAll(this.menu);
     item.selected = true;
-    localStorage.setItem('menu-selected', item.route);
   }
 
   toggle(): void {

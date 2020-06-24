@@ -11,13 +11,23 @@ import { UserService } from 'src/app/services/user.service';
 import { UserComponent } from './user/user.component';
 import { UserDialogComponent } from './user/components/user-dialog/user-dialog.component';
 import { RoleService } from 'src/app/services/role.service';
-
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { VehicleDialogComponent } from './vehicle/components/vehicle-dialog.component.ts/vehicle-dialog.component';
+import { ClientComponent } from './client/client.component';
+import { ClientService } from 'src/app/services/client.service';
+import { VehicleService } from 'src/app/services/vehicle.service';
+import { ClientDialogComponent } from './client/components/client-dialog.component';
+import { IdentityDocumentService } from 'src/app/services/identity-document.service';
 
 @NgModule({
   declarations: [
     SupportComponent,
     UserComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    VehicleComponent,
+    VehicleDialogComponent,
+    ClientComponent,
+    ClientDialogComponent
   ],
   imports: [
     CommonModule,
@@ -29,9 +39,11 @@ import { RoleService } from 'src/app/services/role.service';
   exports: [
     SupportComponent
   ],
-  providers: [UserService, RoleService, Utility],
+  providers: [UserService, RoleService, Utility, VehicleService, ClientService, IdentityDocumentService],
   entryComponents: [
-    UserDialogComponent
+    UserDialogComponent,
+    VehicleDialogComponent,
+    ClientDialogComponent
   ]
 })
 export class SupportModule { }

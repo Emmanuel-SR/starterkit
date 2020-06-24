@@ -1,8 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ILogin } from 'src/app/models/login.model';
-import { HttpApi } from '../api/http.api';
 import { IJwtResponse } from 'src/app/models/jwt-response.model';
+import { HttpApi } from 'src/app/shared/services/apis/http.api';
 
 @Injectable({
     providedIn: 'root'

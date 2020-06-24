@@ -3,36 +3,28 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { IElementTypeModel } from 'src/app/shared/models/element-type.model';
 import { ActionsEnum } from 'src/app/shared/enums/actions.enum';
-import { IUserModel } from 'src/app/models/user.model';
-import { IRoleModel } from 'src/app/models/role.model';
+import { IVehicleModel } from 'src/app/models/vehicle.model';
 
 
 @Component({
-  selector: 'app-user-dialog',
-  templateUrl: './user-dialog.component.html',
-  styleUrls: ['./user-dialog.component.css']
+  selector: 'app-vehicle-dialog',
+  templateUrl: './vehicle-dialog.component.html',
+  styleUrls: ['./vehicle-dialog.component.css']
 })
-export class UserDialogComponent implements OnInit {
+export class VehicleDialogComponent implements OnInit {
 
   title: string = 'Editar';
-  user: IUserModel;
+  vehicle: IVehicleModel;
   isView: boolean;
 
-  roleList: IRoleModel[]
-
   constructor(
-    public dialogRef: MatDialogRef<UserDialogComponent>,
+    public dialogRef: MatDialogRef<VehicleDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IElementTypeModel,
   ) { }
 
   ngOnInit(): void {
-    this.user = this.data.element;
-    this.roleList = this.data.lists.roles;
+    this.vehicle = this.data.element;
     this.setTitle(this.data.type);
-  }
-
-  compareFn(r1: IRoleModel, r2: IRoleModel): boolean {
-    return r1 && r2 ? r1.id === r2.id : r1 === r2;
   }
 
   setTitle(type: string) {
@@ -51,7 +43,7 @@ export class UserDialogComponent implements OnInit {
   }
 
   accept(): void {
-
+    
   }
-
+  
 }

@@ -3,7 +3,7 @@ import { ILogin } from "src/app/models/login.model";
 import { AuthenticationService } from "src/app/services/authentication.service";
 import { Router } from "@angular/router";
 import { UserService } from "src/app/services/user.service";
-import { IErrorModel } from "src/app/models/error-response.model";
+import { IErrorModel } from "src/app/shared/models/error-response.model";
 
 @Component({
   selector: "app-login",

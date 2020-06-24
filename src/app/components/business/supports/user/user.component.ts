@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
-import { IElementTypeModel } from "src/app/models/element-type.model";
-import { ActionsEnum } from "src/app/shared/actions.enum";
+import { IElementTypeModel } from "src/app/shared/models/element-type.model";
+import { ActionsEnum } from "src/app/shared/enums/actions.enum";
 import { MatDialog } from "@angular/material/dialog";
 import { IUserModel } from "src/app/models/user.model";
 import { UserService } from "src/app/services/user.service";
@@ -10,7 +10,7 @@ import { RoleService } from 'src/app/services/role.service';
 import { IRoleModel } from 'src/app/models/role.model';
 import { Utility } from 'src/app/utils/helper/utility';
 import { MatTableDataSource } from '@angular/material/table';
-import { ITableColumnModel } from 'src/app/models/table-column.model';
+import { ITableColumnModel } from 'src/app/shared/models/table-column.model';
 
 @Component({
   selector: "app-user",
@@ -31,7 +31,7 @@ export class UserComponent implements OnInit {
 
   constructor(private userService: UserService, private roleService: RoleService, public utilityService: Utility, public dialog: MatDialog) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadRoles();
     this.loadTableColumns();
     this.loadDataSource();

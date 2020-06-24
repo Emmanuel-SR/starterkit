@@ -1,0 +1,50 @@
+<div class="flex flex-row justify-between items-baseline px-2">
+    <mat-form-field>
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Buscar usuario">
+    </mat-form-field>
+    <div>
+      <button mat-raised-button (click)="newVehicle()" class="w-32 text-white bg-blue-500 hover:bg-blue-700">
+        Agregar
+      </button>
+    </div>
+  </div>
+
+  <div class="px-2">
+    <table mat-table [dataSource]="datasource" class="w-full">
+
+        <div *ngFor="let tableColumn of tableColumns">
+            <ng-container [matColumnDef]="tableColumn.displayedColumn">
+                <th mat-header-cell *matHeaderCellDef class="bg-blue-500 text-white text-sm">
+                    {{ tableColumn.titleColumn }}
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ utilityService.extractProperty(element, tableColumn.displayedColumn) }}
+                </td>
+            </ng-container>
+        </div>
+
+        <ng-container matColumnDef="btnAction" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef class="bg-blue-500 text-white text-sm">
+                Acciones
+            </th>
+            <td mat-cell *matCellDef="let element" class="w-10">
+                <div class="flex">
+                    <div class="text-green-500 hover:text-green-700 cursor-pointer" (click)="editVehicleSelected(element)">
+                        <mat-icon>colorize</mat-icon>
+                    </div>
+                    <div class="text-blue-500 hover:text-blue-700 cursor-pointer" (click)="viewVehicleSelected(element)">
+                        <mat-icon>visibility</mat-icon>
+                    </div>
+                </div>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover:bg-gray-100"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="pagination" showFirstLastButtons [pageIndex]="pageIndex" [length]="length" [pageSize]="pageSize" (page)="pageEvent = getServerData($event)">
+    </mat-paginator>
+
+</div>

@@ -3,5 +3,7 @@ export enum AppPath {
     LANDING = 'ng-app',
     LOGIN = 'login',
     MATCH_FULL = 'full',
-    USERS = 'users'
+    USERS = 'users',
+    VEHICLES = 'vehicles',
+    CLIENTS = 'clients'
 }
